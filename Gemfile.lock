@@ -9,6 +9,7 @@ GEM
     diff-lcs (1.2.5)
     dotenv (0.10.0)
     mime-types (2.2)
+    rake (10.1.1)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -25,4 +26,5 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   dotenv
+  rake
   rspec
