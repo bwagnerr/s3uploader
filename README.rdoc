@@ -1,0 +1,6 @@
+S3 Uploader
+---
+
+A simple s3 uploader, you feed it a bucket name and the folder you want and it uploads the folder content to s3 in the same hierarchy as the file
+
+Usage: uploader <bucket> <folder_name>
