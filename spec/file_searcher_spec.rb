@@ -9,7 +9,7 @@ describe FileSearcher do
 
   context 'when asked to examine' do
 
-    it 'return a hash of files with absolute and relative path' do
+    it 'return a hash of files (no directories) with absolute and relative path' do
       expect(subject.examine.keys).to match_array files.keys
     end
 

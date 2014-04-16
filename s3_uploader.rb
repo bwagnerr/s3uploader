@@ -26,8 +26,10 @@ class S3Uploader
 
   def upload files
     files.each_pair do |relative_path, absolute_path|
+      print "Uploading file #{relative_path}..."
       file = File.read(absolute_path)
-      AWS::S3::S3Object.store file, @bucket_name
+      AWS::S3::S3Object.store relative_path, file, @bucket_name
+      puts "done."
     end
   end
 
