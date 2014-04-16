@@ -41,7 +41,7 @@ describe Uploader do
 
     it 'returns false if the upload had problems' do
       fail_uploader = double(S3Uploader)
-      fail_uploader.stub(:upload).and_raise(StandardError.new('Error'))
+      fail_uploader.stub(:upload).and_raise(AWS::S3::NoSuchKey.new({}, :key))
       promoter = Uploader.new searcher, fail_uploader
       expect(promoter.upload).to be_false
     end

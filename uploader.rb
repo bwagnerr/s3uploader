@@ -15,10 +15,10 @@ class Uploader
   end
 
   def upload
-    @uploader.upload
+    @uploader.upload @files
     return true
-  rescue StandardError => ex
-    puts ex.message
+  rescue AWS::S3::S3Exception => ex
+    puts "#{ex.class.to_s}: #{ex.message}"
     return false
   end
 end
