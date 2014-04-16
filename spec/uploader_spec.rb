@@ -1,14 +1,14 @@
-require "./promoter"
+require "./uploader"
 require "aws/s3"
 
-describe Promoter do
+describe Uploader do
 
   let(:file_list) { ['file1', 'file2'] }
 
   let(:searcher) { double(FileSearcher, examine: file_list) }
   let(:uploader) { double(S3Uploader, upload: true ) }
 
-  subject { Promoter.new searcher, uploader }
+  subject { Uploader.new searcher, uploader }
 
   before do
   end
@@ -35,14 +35,14 @@ describe Promoter do
 
     it 'returns true if the upload was successful' do
       successful_uploader = double(S3Uploader, upload: nil)
-      promoter = Promoter.new searcher, successful_uploader
+      promoter = Uploader.new searcher, successful_uploader
       expect(promoter.upload).to be_true
     end
 
     it 'returns false if the upload had problems' do
       fail_uploader = double(S3Uploader)
       fail_uploader.stub(:upload).and_raise(StandardError.new('Error'))
-      promoter = Promoter.new searcher, fail_uploader
+      promoter = Uploader.new searcher, fail_uploader
       expect(promoter.upload).to be_false
     end
 

@@ -4,7 +4,7 @@ require './spec/spec_helper'
 require_relative 'file_searcher'
 require_relative 's3_uploader'
 
-class Promoter
+class Uploader
   def initialize(filesearcher, uploader)
     @searcher = filesearcher
     @uploader = uploader
@@ -34,10 +34,10 @@ if __FILE__ == $0
   path = ARGV[1]
 
   filesearcher = FileSearcher.new path
-  uploader = S3Uploader.new bucket
-  promoter = Promoter.new filesearcher, uploader
-  promoter.scan_files
-  if promoter.upload
+  s3uploader = S3Uploader.new bucket
+  uploader = Uploader.new filesearcher, s3uploader
+  uploader.scan_files
+  if uploader.upload
     puts "Upload Successful"
     exit 0
   else
