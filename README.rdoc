@@ -1,6 +1,9 @@
-S3 Uploader
----
+= S3 Uploader
 
 A simple s3 uploader, you feed it a bucket name and the folder you want and it uploads the folder content to s3 in the same hierarchy as the file
 
 Usage: ./uploader.rb <bucket> <folder_name>
+
+{<img src="https://travis-ci.org/bwgpro/s3uploader.svg" alt="Build Status" />}[https://travis-ci.org/bwgpro/s3uploader]
+
+{<img src="https://codeclimate.com/github/bwgpro/s3uploader.png" />}[https://codeclimate.com/github/bwgpro/s3uploader]
