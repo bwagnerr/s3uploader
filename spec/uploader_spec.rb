@@ -1,5 +1,5 @@
+require "./spec/spec_helper"
 require "./uploader"
-require "aws/s3"
 
 describe Uploader do
 

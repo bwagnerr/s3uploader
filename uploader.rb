@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require './spec/spec_helper'
 require_relative 'file_searcher'
 require_relative 's3_uploader'
 
